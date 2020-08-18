@@ -35,9 +35,6 @@ else
     exit 1
 fi
 
-run_echo "Install oh-my-zsh"
-sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
 run_echo "Install zsh"
 sudo yum install -y gcc kernel-devel make ncurses-devel git wget curl
 
@@ -138,8 +135,6 @@ if [ ! -d ~/.tmux/plugins/tpm ]; then
 fi
 
 curl -fsSL https://raw.githubusercontent.com/IvanBabushkin/terminal/master/tmux/.tmux.conf > ~/.tmux.conf
-
-
 
 
 # sh -c "$(curl -fsSL https://raw.githubusercontent.com/IvanBabushkin/terminal/master/install.sh)"
