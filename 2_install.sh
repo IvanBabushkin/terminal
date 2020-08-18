@@ -33,6 +33,21 @@ if [ ! -f /etc/redhat-release ]; then
     exit 1
 fi
 
+if [[ $(tmux -V) == "tmux $tmuxversion" ]]
+then
+    run_echo "Tmux $tmuxversion installed"
+else
+    error "Tmux $tmuxversion not installed"
+    exit 1
+fi
+
+if [[ ! $(zsh --version)  ]]
+then
+    error "zsh not installed"
+    exit 1
+fi
+
+
 
 run_echo "Install oh-my-zsh plugins"
 mkdir -p ~/.oh-my-zsh/custom/plugins/
