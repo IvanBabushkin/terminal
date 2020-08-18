@@ -107,14 +107,12 @@ else
 
 fi
 
-
 if [[ $(tmux -V) == "tmux $tmuxversion" ]]
 then
     run_echo "Tmux $tmuxversion installed"
 else
     error "Install Tmux"
 fi
-
 
 run_echo "Install oh-my-zsh plugins"
 mkdir -p ~/.oh-my-zsh/custom/plugins/
@@ -129,9 +127,6 @@ if [ ! -d ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting ]; then
     git clone https://github.com/zsh-users/zsh-syntax-highlighting
 fi
 
-
-
-#
 curl -fsSL https://raw.githubusercontent.com/IvanBabushkin/terminal/master/zsh/.zshrc > ~/.zshrc
 mkdir -p ~/.oh-my-zsh/custom/themes/
 curl -fsSL https://raw.githubusercontent.com/IvanBabushkin/terminal/master/zsh/theme/me.zsh-theme > ~/.oh-my-zsh/custom/themes/me.zsh-theme
@@ -143,8 +138,6 @@ fi
 curl -fsSL https://raw.githubusercontent.com/IvanBabushkin/terminal/master/tmux/.tmux.conf > ~/.tmux.conf
 curl -fsSL https://raw.githubusercontent.com/IvanBabushkin/terminal/master/bashrc/.bashrc > ~/.bashrc
 source ~/.bashrc
-
-
 
 # sh -c "$(curl -fsSL https://raw.githubusercontent.com/IvanBabushkin/terminal/master/install.sh)"
 echo "tmux new -s ivan || tmux attach -t ivan" >> ~/.bashrc
