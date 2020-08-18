@@ -1,6 +1,11 @@
 #!/bin/bash
 set -e
 
+if [ ! -f /etc/redhat-release ]; then
+    error "CentOS only"
+    exit 1
+fi
+
 if [[ $(tmux -V) == "tmux $tmuxversion" ]]
 then
     run_echo "Tmux $tmuxversion installed"
