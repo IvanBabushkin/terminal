@@ -36,7 +36,7 @@ else
 fi
 
 run_echo "Install zsh"
-sudo yum install -y zsh
+sudo yum install -y gcc kernel-devel make ncurses-devel git wget curl
 
 
 if [[ $(tmux -V) == "tmux $tmuxversion" ]]
@@ -47,7 +47,7 @@ else
     run_echo "Install Deps"
     rm -rf ~/Downloads/tmux
     mkdir -p ~/Downloads/tmux
-    sudo yum install -y gcc kernel-devel make ncurses-devel git wget curl zsh
+
     run_echo "Download and install libevent"
     cd ~/Downloads/tmux
 
