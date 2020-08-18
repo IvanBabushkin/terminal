@@ -128,8 +128,7 @@ if [ ! -d ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting ]; then
     git clone https://github.com/zsh-users/zsh-syntax-highlighting
 fi
 
-run_echo "Install oh-my-zsh"
-sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
 
 #
 curl -fsSL https://raw.githubusercontent.com/IvanBabushkin/terminal/master/zsh/.zshrc > ~/.zshrc
@@ -141,3 +140,9 @@ if [ ! -d ~/.tmux/plugins/tpm ]; then
 fi
 
 curl -fsSL https://raw.githubusercontent.com/IvanBabushkin/terminal/master/tmux/.tmux.conf > ~/.tmux.conf
+
+
+run_echo "Install oh-my-zsh"
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+# sh -c "$(curl -fsSL https://raw.githubusercontent.com/IvanBabushkin/terminal/master/install.sh)"
