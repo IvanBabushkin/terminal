@@ -47,13 +47,8 @@ else
     run_echo "Install Deps"
     rm -rf ~/Downloads/tmux
     mkdir -p ~/Downloads/tmux
-    sudo yum install -y gcc kernel-devel make ncurses-devel git wget curl zsh >/dev/null 2>&1 || {
-        error "Install deps"
-        exit 1
-    }
-
+    sudo yum install -y gcc kernel-devel make ncurses-devel git wget curl zsh
     run_echo "Download and install libevent"
-
     cd ~/Downloads/tmux
 
     curl -OL "https://github.com/libevent/libevent/releases/download/release-$libeventversion-stable/libevent-$libeventversion-stable.tar.gz" >/dev/null 2>&1 || {
