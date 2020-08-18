@@ -117,10 +117,27 @@ fi
 
 run_echo "Install oh-my-zsh plugins"
 mkdir -p ~/.oh-my-zsh/custom/plugins/
-cd ~/.oh-my-zsh/custom/plugins/
-git clone https://github.com/zsh-users/zsh-syntax-highlighting
-git clone https://github.com/zsh-users/zsh-autosuggestions
+
+if [ ! -d ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions ]; then
+    cd ~/.oh-my-zsh/custom/plugins/
+    git clone https://github.com/zsh-users/zsh-autosuggestions
+fi
+
+if [ ! -d ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting ]; then
+    cd ~/.oh-my-zsh/custom/plugins/
+    git clone https://github.com/zsh-users/zsh-syntax-highlighting
+fi
 
 run_echo "Install oh-my-zsh"
-sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+#sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
+#
+curl -fsSL https://raw.githubusercontent.com/IvanBabushkin/terminal/master/zsh/.zshrc > ~/.zshrc
+mkdir -p ~/.oh-my-zsh/custom/themes/
+curl -fsSL https://raw.githubusercontent.com/IvanBabushkin/terminal/master/zsh/theme/me.zsh-theme > ~/.oh-my-zsh/custom/themes/me.zsh-theme
+
+if [ ! -d ~/.tmux/plugins/tpm ]; then
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+fi
+
+curl -fsSL https://raw.githubusercontent.com/IvanBabushkin/terminal/master/tmux/.tmux.conf > ~/.tmux.conf
