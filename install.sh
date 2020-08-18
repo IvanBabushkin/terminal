@@ -47,7 +47,7 @@ else
     run_echo "Install Deps"
     rm -rf ~/Downloads/tmux
     mkdir -p ~/Downloads/tmux
-    yum install -y gcc kernel-devel make ncurses-devel git wget curl zsh >/dev/null 2>&1 || {
+    sudo yum install -y gcc kernel-devel make ncurses-devel git wget curl zsh >/dev/null 2>&1 || {
         error "Install deps"
         exit 1
     }
@@ -146,3 +146,4 @@ run_echo "Install oh-my-zsh"
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 # sh -c "$(curl -fsSL https://raw.githubusercontent.com/IvanBabushkin/terminal/master/install.sh)"
+# tmux new -s ivan || tmux attach -t ivan
