@@ -49,5 +49,6 @@ fi
 
 
 rm -rf ~/.oh-my-zsh
+cd ~
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 

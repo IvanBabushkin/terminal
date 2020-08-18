@@ -1,6 +1,6 @@
 
 export PATH=$HOME/bin:/usr/local/bin:$PATH
-export ZSH="/home/ivan/.oh-my-zsh"
+export ZSH="~/.oh-my-zsh"
 ZSH_THEME="me"
 HIST_STAMPS="dd.mm.yyyy"
 plugins=(
