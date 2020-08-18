@@ -140,4 +140,3 @@ curl -fsSL https://raw.githubusercontent.com/IvanBabushkin/terminal/master/bashr
 source ~/.bashrc
 
 # sh -c "$(curl -fsSL https://raw.githubusercontent.com/IvanBabushkin/terminal/master/install.sh)"
-echo "tmux new -s ivan || tmux attach -t ivan" >> ~/.bashrc
