@@ -27,7 +27,7 @@ run_echo() {
 
 setup_color
 
-if [ "$EUID" -ne 0 ]
+if [ "$EUID" -ne 0 ] then
   error "Please run as root"
   exit 1
 fi
