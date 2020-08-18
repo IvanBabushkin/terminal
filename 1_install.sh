@@ -1,6 +1,9 @@
 #!/bin/bash
 set -e
 
+libeventversion=2.1.11
+tmuxversion=3.1
+
 if [ ! -f /etc/redhat-release ]; then
     error "CentOS only"
     exit 1
