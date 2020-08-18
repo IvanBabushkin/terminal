@@ -35,11 +35,11 @@ else
     exit 1
 fi
 
-if [ -d ~/.oh-my-zsh ]; then
-    rm -rf ~/.oh-my-zsh
-fi
+# if [ -d ~/.oh-my-zsh ]; then
+#     rm -rf ~/.oh-my-zsh
+# fi
 
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+# sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 run_echo "Install zsh"
 sudo yum install -y gcc kernel-devel make ncurses-devel git wget curl
@@ -139,4 +139,7 @@ curl -fsSL https://raw.githubusercontent.com/IvanBabushkin/terminal/master/tmux/
 curl -fsSL https://raw.githubusercontent.com/IvanBabushkin/terminal/master/bashrc/.bashrc > ~/.bashrc
 source ~/.bashrc
 
+
+# rm -rf ~/.oh-my-zsh
+# sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 # sh -c "$(curl -fsSL https://raw.githubusercontent.com/IvanBabushkin/terminal/master/install.sh)"
