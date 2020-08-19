@@ -55,10 +55,9 @@ if [ $install_deps == 1 ]; then
     prompt_confirm "Установить? требуется root" || exit 0
     sudo sh -c "$(curl -fsSL 'https://raw.githubusercontent.com/IvanBabushkin/terminal/master/0_install.sh')"
 else
-        echo vse ok
-        rm -rf ~/.oh-my-zsh
-        cd ~
-        sh -c "$(curl -fsSL 'https://raw.githubusercontent.com/IvanBabushkin/terminal/master/1_install.sh')"
+    rm -rf ~/.oh-my-zsh
+    cd ~
+    sh -c "$(curl -fsSL 'https://raw.githubusercontent.com/IvanBabushkin/terminal/master/1_install.sh')"
 fi
 
 
