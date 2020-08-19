@@ -18,4 +18,8 @@ plugins=(
     rsync
 )
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=243'
+
+# ALIAS
+alias update_terimnal_configs='sh -c $(curl -fsSL "https://raw.githubusercontent.com/IvanBabushkin/terminal/master/2_install.sh")'
+
 source $ZSH/oh-my-zsh.sh
