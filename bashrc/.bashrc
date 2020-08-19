@@ -9,4 +9,4 @@ fi
 # export SYSTEMD_PAGER=
 
 # User specific aliases and functions
-tmux new -s ivan || tmux attach -t ivan
+tmux -2 new -s ivan || tmux -2 attach -t ivan
