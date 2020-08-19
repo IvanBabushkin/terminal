@@ -12,4 +12,4 @@ fi
 
 alias update_terimnal_configs='sh -c $(curl -fsSL "https://raw.githubusercontent.com/IvanBabushkin/terminal/master/2_install.sh")'
 [[ $- != *i* ]] && return
-[[ -z "$TMUX" ]] && exec tmux -2 new -s ivan || tmux -2 attach -t ivan
+[[ -z "$TMUX" ]] && exec tmux -2 new -s $USER || tmux -2 attach -t $USER
