@@ -39,7 +39,7 @@ sudo yum install -y gcc kernel-devel make ncurses-devel git wget curl nano tar z
     exit 1
 }
 
-if [[ command_exists "tmux" ]] && [[ $(tmux -V) == "tmux $tmuxversion" ]]
+if command_exists tmux && $(tmux -V) == "tmux $tmuxversion"
 then
     run_echo Tmux $tmuxversion installed
 else
