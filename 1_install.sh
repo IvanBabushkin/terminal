@@ -33,14 +33,6 @@ if [ ! -f /etc/redhat-release ]; then
     exit 1
 fi
 
-if [[ command_exists "tmux" ]] && [[ $(tmux -V) == "tmux $tmuxversion" ]]
-then
-    run_echo "Tmux $tmuxversion installed"
-else
-    error "Tmux $tmuxversion not installed"
-    exit 1
-fi
-
 rm -rf ~/.oh-my-zsh
 cd ~
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
