@@ -83,7 +83,8 @@ run_echo "Install Tmux config"
 curl -fsSL https://raw.githubusercontent.com/IvanBabushkin/terminal/master/tmux/.tmux.conf > ~/.tmux.conf
 run_echo "Install bash config"
 curl -fsSL https://raw.githubusercontent.com/IvanBabushkin/terminal/master/bashrc/.bashrc > ~/.bashrc
-run_echo "plz reload bash and plugins: source ~/.bashrc"
+run_echo "load tmux: source ~/.bashrc"
+run_echo "Press prefix + I (capital i, as in Install) to fetch the plugin"
 
 
 # rm -rf ~/.oh-my-zsh
