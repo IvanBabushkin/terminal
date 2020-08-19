@@ -3,6 +3,10 @@ set -e
 libeventversion=2.1.11
 tmuxversion=3.1
 
+command_exists() {
+	command -v "$@" >/dev/null 2>&1
+}
+
 setup_color() {
 	# Only use colors if connected to a terminal
 		RED=$(printf '\033[31m')
@@ -39,7 +43,7 @@ if ! [ -f /etc/redhat-release ]; then
     exit 1
 fi
 
-if [ type "tmux" > /dev/null ]  && [ type "zsh" > /dev/null ]  && [ $(tmux -V) == "tmux $tmuxversion" ]; then
+if [[ command_exists tmux ]] && [[ command_exists zsh ]] && [[ $(tmux -V) == "tmux $tmuxversion" ]]; then
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/IvanBabushkin/terminal/master/1_install.sh)"
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/IvanBabushkin/terminal/master/2_install.sh)"
     exit 0
