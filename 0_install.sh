@@ -27,17 +27,10 @@ run_echo() {
 
 setup_color
 
-if [ "$EUID" -ne 0 ]; 
+if [ "$EUID" -ne 0 ];
 then
-  error "Please run as root"
+  error "Недостаточно прав для установки"
   exit 1
-fi
-
-if [ -f /etc/redhat-release ]; then
-  run_echo "Ok it's CentOS, go .."
-else
-    error "CentOS only"
-    exit 1
 fi
 
 run_echo "Install Deps"
@@ -46,7 +39,7 @@ sudo yum install -y gcc kernel-devel make ncurses-devel git wget curl nano tar z
     exit 1
 }
 
-if [[ $(tmux -V) == "tmux $tmuxversion" ]]
+if [[ command_exists "tmux" ]] && [[ $(tmux -V) == "tmux $tmuxversion" ]]
 then
     run_echo Tmux $tmuxversion installed
 else
@@ -107,8 +100,8 @@ fi
 
 if [[ $(tmux -V) == "tmux $tmuxversion" ]]
 then
-    run_echo "Tmux $tmuxversion installed"
+    run_echo "Tmux $tmuxversion установлен."
+    echo "Перезапустите скрипт для продолжения установки."
 else
-    error "Tmux $tmuxversion not installed"
+    error "Tmux $tmuxversion не установлен"
 fi
-

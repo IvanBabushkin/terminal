@@ -33,7 +33,7 @@ if [ ! -f /etc/redhat-release ]; then
     exit 1
 fi
 
-if [[ $(tmux -V) == "tmux $tmuxversion" ]]
+if [[ command_exists "tmux" ]] && [[ $(tmux -V) == "tmux $tmuxversion" ]]
 then
     run_echo "Tmux $tmuxversion installed"
 else
@@ -41,14 +41,44 @@ else
     exit 1
 fi
 
-if [[ ! $(zsh --version)  ]]
-then
-    error "zsh not installed"
-    exit 1
-fi
-
-
 rm -rf ~/.oh-my-zsh
 cd ~
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+
+run_echo "Install oh-my-zsh plugins"
+mkdir -p ~/.oh-my-zsh/custom/plugins/
+
+if [ ! -d ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions ]; then
+    cd ~/.oh-my-zsh/custom/plugins/
+    git clone https://github.com/zsh-users/zsh-autosuggestions >/dev/null 2>&1 || {
+        error "install zsh-autosuggestions"
+        exit 1
+    }
+fi
+
+if [ ! -d ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting ]; then
+    cd ~/.oh-my-zsh/custom/plugins/
+    git clone https://github.com/zsh-users/zsh-syntax-highlighting  >/dev/null 2>&1 || {
+        error "zsh-syntax-highlighting"
+        exit 1
+    }
+fi
+
+run_echo "Install zsh config"
+curl -fsSL https://raw.githubusercontent.com/IvanBabushkin/terminal/master/zsh/.zshrc > ~/.zshrc
+run_echo "Install zsh theme"
+mkdir -p ~/.oh-my-zsh/custom/themes/
+curl -fsSL https://raw.githubusercontent.com/IvanBabushkin/terminal/master/zsh/theme/me.zsh-theme > ~/.oh-my-zsh/custom/themes/me.zsh-theme
+
+run_echo "Install Tmux Plugin Manager"
+if [ ! -d ~/.tmux/plugins/tpm ]; then
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+fi
+
+run_echo "Install Tmux config"
+curl -fsSL https://raw.githubusercontent.com/IvanBabushkin/terminal/master/tmux/.tmux.conf > ~/.tmux.conf
+run_echo "Install bash config"
+curl -fsSL https://raw.githubusercontent.com/IvanBabushkin/terminal/master/bashrc/.bashrc > ~/.bashrc
+run_echo "load tmux: source ~/.bashrc"
+run_echo "Press prefix + I (capital i, as in Install) to fetch the plugin"
 
