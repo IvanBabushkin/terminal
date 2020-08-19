@@ -43,15 +43,20 @@ if ! [ -f /etc/redhat-release ]; then
     exit 1
 fi
 
-run_echo $(command_exists tmux) lalala
-if [ -f command_exists "tmux" ] && command_exists "zsh" && $(tmux -V) == "tmux $tmuxversion"; then
+install_deps=0
+
+command_exists zsh || install_deps=1
+command_exists tmux || install_deps=1
+
+if $install_deps; then
+    echo ${RED}"Не установлены зависимости${RESET}" >&2
+    prompt_confirm "Установить? требуется root" || exit 0
+    sudo sh -c "$(curl -fsSL 'https://raw.githubusercontent.com/IvanBabushkin/terminal/master/0_install.sh')"
+else
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/IvanBabushkin/terminal/master/1_install.sh)"
-    exit 0
 fi
 
-echo ${RED}"Не установлены зависимости${RESET}" >&2
-prompt_confirm "Установить? требуется root" || exit 0
-sudo sh -c "$(curl -fsSL 'https://raw.githubusercontent.com/IvanBabushkin/terminal/master/0_install.sh')"
+
 
 # sh -c "$(curl -fsSL https://raw.githubusercontent.com/IvanBabushkin/terminal/master/install.sh)"
 
