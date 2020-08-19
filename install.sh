@@ -48,7 +48,7 @@ install_deps=0
 command_exists zsh || install_deps=1
 command_exists tmux || install_deps=1
 
-if [ $install_deps ]; then
+if [[ $install_deps == 1 ]]; then
     echo ${RED}"Не установлены зависимости${RESET}" >&2
     prompt_confirm "Установить? требуется root" || exit 0
     sudo sh -c "$(curl -fsSL 'https://raw.githubusercontent.com/IvanBabushkin/terminal/master/0_install.sh')"
