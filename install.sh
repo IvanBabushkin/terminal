@@ -43,7 +43,7 @@ if ! [ -f /etc/redhat-release ]; then
     exit 1
 fi
 
-echo command_exists "tmux"
+run_echo command_exists tmux
 if [ -f command_exists "tmux" ] && command_exists "zsh" && $(tmux -V) == "tmux $tmuxversion"; then
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/IvanBabushkin/terminal/master/1_install.sh)"
     exit 0
