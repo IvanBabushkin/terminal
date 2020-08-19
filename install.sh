@@ -39,12 +39,12 @@ prompt_confirm() {
 
 setup_color
 
-if [ ! -f /etc/redhat-release ]; then
+if ! [ -f /etc/redhat-release ]; then
     error "CentOS only"
     exit 1
 fi
 
-if [ command_exists "tmux"]  && [ command_exists "zsh" ]  && [ $(tmux -V) == "tmux $tmuxversion" ]; then
+if [ command_exists "tmux" ]  && [ command_exists "zsh" ]  && [ $(tmux -V) == "tmux $tmuxversion" ]; then
     sh -c "$(curl -fsSL 'https://raw.githubusercontent.com/IvanBabushkin/terminal/master/1_install.sh')"
     sh -c "$(curl -fsSL 'https://raw.githubusercontent.com/IvanBabushkin/terminal/master/2_install.sh')"
     exit 0
