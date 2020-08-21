@@ -16,6 +16,9 @@ plugins=(
     colored-man-pages
     compleat
     rsync
+    supervisor
+    zsh-interactive-cd
+    common-aliases
 )
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=243'
 
