@@ -4,21 +4,22 @@ export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="me"
 HIST_STAMPS="dd.mm.yyyy"
 plugins=(
-    sudo
-    zsh-autosuggestions
-    zsh-syntax-highlighting
-    history
-    git
+    #compleat
+    colored-man-pages
+    common-aliases
+    cp
+    django
     docker
     docker-compose
-    django
+    git
+    history
     redis-cli
-    colored-man-pages
-    compleat
     rsync
+    sudo
     supervisor
+    zsh-autosuggestions
     zsh-interactive-cd
-    common-aliases
+    zsh-syntax-highlighting
 )
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=243'
 
